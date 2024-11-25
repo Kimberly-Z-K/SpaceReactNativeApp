@@ -15,39 +15,39 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
 
   const HandleSignup = async () => {
-    // Validate inputs
+    
     if (!email || !password || !name || !surname || !username) {
       Alert.alert('Error', 'Please fill up all fields!');
       return;
     }
 
     try {
-      setLoading(true); // Start loading
+      setLoading(true); 
 
-      // Create user with email and password
+    
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user; // Get user info
+      const user = userCredential.user; 
 
-      // Save user details to Firestore
+    
       await addDoc(collection(db, 'users'), {
         Name: name,
         Surname: surname,
         UserName: username,
         Email: email,
-        uid: user.uid, // Save the user's UID
+        uid: user.uid, 
       });
 
       console.log('User created with email:', email);
       Alert.alert('Success', 'Your account has been created!');
       
-      // Navigate to login screen
+    
       navigation.navigate('Login'); 
 
     } catch (error) {
       console.error('Error during signup:', error.message);
       Alert.alert('Sign Up Error', error.message);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false); 
     }
   };
 
