@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fetches the website you want to display//
+     In this case i am using a code from this website as my API to fetch the globe
+    -->
+    <script src="https://sandbox.openglobus.org/"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #globus {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- The image is stored in this div-->
+    <div id="globus"></div>
+    <script>
+        const globus = new og.Globe({
+            target: 'globus'
+        });
+    </script>
+</body>
+</html>
